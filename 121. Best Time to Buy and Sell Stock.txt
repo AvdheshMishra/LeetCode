@@ -1,0 +1,13 @@
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        int maximumProfit = 0, minimumStockValue = INT_MAX;
+        for(int i=0; i<n; i++) {
+            minimumStockValue = min(minimumStockValue, prices[i]); 
+            if (prices[i] >= minimumStockValue)
+                maximumProfit = max(maximumProfit, prices[i] - minimumStockValue);
+        }
+        return maximumProfit;
+    }
+};
