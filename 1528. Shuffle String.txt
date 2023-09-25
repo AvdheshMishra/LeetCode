@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string restoreString(string s, vector<int>& indices) {
+        int n = indices.size();
+        for(int i=0; i<n-1; i++) {
+            int minIdx = i;
+            for(int j=i+1; j<n; j++) {
+                if(indices[minIdx] > indices[j]) {
+                    minIdx = j;
+                }
+            }
+            if(i != minIdx) {
+                swap(indices[minIdx],indices[i]);
+                swap(s[minIdx],s[i]);
+            }
+        }
+        return s;
+    }
+};
