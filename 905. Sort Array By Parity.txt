@@ -1,0 +1,38 @@
+//solutio 1
+class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& nums) {
+        int n = nums.size();
+        vector<int> ans;
+        //for even value
+        for(int i=0; i<n; i++) {
+            if(nums[i] % 2 == 0) {
+                ans.push_back(nums[i]);
+            }
+        }
+        //for odd value;
+        for(int i=0; i<n; i++) {
+            if(nums[i] % 2 != 0) {
+                ans.push_back(nums[i]);
+            }
+        }
+        return ans;
+    }
+};
+
+
+//solution 2
+/*class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& nums) {
+        int n = nums.size();
+        for(int i=0; i<n; i++) {
+            for(int j=i+1; j<n; j++) {
+                if(nums[i]%2 != 0) {
+                    swap(nums[i],nums[j]);
+                }
+            }
+        }
+        return nums;
+    }
+};*/
